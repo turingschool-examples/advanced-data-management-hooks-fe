@@ -7,4 +7,4 @@ This app is designed t be used as practice for testing useEffect, Get request. T
 - Change into the cloned repo directory
 - Run npm install to install dependencies
 - Run npm start to start the front-end development server
-- -Setup Back End rep [here](https://github.com/turingschool-examples/ideabox-api)
+- Setup Back End rep [here](https://github.com/turingschool-examples/ideabox-api)
