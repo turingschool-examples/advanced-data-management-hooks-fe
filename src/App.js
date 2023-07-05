@@ -1,7 +1,6 @@
 import  { useState } from 'react';
 import Ideas from './Ideas';
-
-import Form from './Form.js'
+import Form from './From'
 
 import './App.css';
 
