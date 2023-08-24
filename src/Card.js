@@ -1,6 +1,5 @@
 
 function Card({ title, description, id, deleteIdea }){
-  console.log(deleteIdea)
     return (
       <div className='card'>
         <h3>{title}</h3>
