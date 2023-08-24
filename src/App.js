@@ -1,6 +1,6 @@
 import  { useState, useEffect } from 'react';
 import Ideas from './Ideas';
-import Form from './From'
+import Form from './Form'
 
 import './App.css';
 
@@ -14,7 +14,20 @@ function App(){
   const [error, setError] = useState('')
 
   function addIdea(newIdea) {
-    setIdeas([...ideas, newIdea])
+    fetch('http://localhost:3001/api/v1/ideas', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        id: newIdea.id,
+        title: newIdea.title,
+        description: newIdea.description
+      }), 
+    })
+    .then(response => response.json())
+    .then(data => setIdeas([...ideas, data]))
+    .catch(error => setError(error.message)) 
   }
 
   function getIdeas() {
@@ -29,8 +42,12 @@ function App(){
   }, [])
 
   function deleteIdea(id){
-    const filteredIdea = ideas.filter(idea => idea.id !== id)
-    setIdeas(filteredIdea)
+    fetch(`http://localhost:3001/api/v1/ideas/${id}`, { method: 'DELETE' })
+    .then(response => {
+      const filteredIdea = ideas.filter(idea => idea.id !== id)
+      setIdeas(filteredIdea)
+    })
+    .catch(error => setError(error.message))
   }
   return(
     <main className='App'>
