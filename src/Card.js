@@ -1,3 +1,4 @@
+import './Card.css';
 
 function Card({ title, description, id, deleteIdea }){
     return (
